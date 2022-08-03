@@ -9,7 +9,7 @@ export function Header() {
 
   const quantityCartShopping = () => { 
   
-  if (cartShopping !== null) { 
+  if (cartShopping !== undefined && cartShopping !== null) { 
    const quantity = cartShopping.reduce((accumulator, cur) => {
       return accumulator + cur.quantity;
     }, 0);
