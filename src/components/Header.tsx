@@ -7,9 +7,16 @@ import { CarContext } from "../context/CarContext";
 export function Header() {
   const { cartShopping } = useContext(CarContext);
 
-  const quantityCartShopping = cartShopping?.reduce((accumulator, cur) => {
-    return accumulator + cur.quantity;
-  }, 0);
+  const quantityCartShopping = () => { 
+  
+  if (cartShopping !== null) { 
+   const quantity = cartShopping.reduce((accumulator, cur) => {
+      return accumulator + cur.quantity;
+    }, 0);
+    return quantity
+  }
+
+}
 
  
   return (
@@ -29,9 +36,9 @@ export function Header() {
             className="h-[2.3rem] w-[2.3rem] bg-[#F1E9C9] flex items-center justify-center rounded"
           >
             <ShoppingCart color="#C47F17" weight="fill" size={20} />
-            {cartShopping!.length > 0 ? (
+            {cartShopping !== null ? (
               <span className="w-5 h-5 bg-[#C47F17] rounded-full flex justify-center items-center absolute mt-[-35px] mr-[-35px] text-xs text-white font-bold">
-                {quantityCartShopping}
+                {quantityCartShopping()}
               </span>
             ) : null}
           </Link>
