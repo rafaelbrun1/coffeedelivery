@@ -7,7 +7,7 @@ import { CarContext } from "../context/CarContext";
 export function Header() {
   const { cartShopping } = useContext(CarContext);
 
-  const quantityCartShopping = cartShopping!.reduce((accumulator, cur) => {
+  const quantityCartShopping = cartShopping?.reduce((accumulator, cur) => {
     return accumulator + cur.quantity;
   }, 0);
 
