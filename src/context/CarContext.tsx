@@ -289,6 +289,12 @@ export function CarContextProvider({ children }: ChildrenProps) {
     window.localStorage.setItem('@desafio-ignite02-1.0.0', JSON.stringify(cartShopping) )
   }, [cartShopping])
 
+  useEffect(() => {
+    if (!cartShopping) { 
+      localStorage.clear()
+    }
+  }, [])
+
 
   return (
     <CarContext.Provider
