@@ -190,7 +190,7 @@ export function CarContextProvider({ children }: ChildrenProps) {
   if (data !== null) { 
     return JSON.parse(data)
   } else { 
-    return setCartShopping([])
+    []
   }
 }
 
