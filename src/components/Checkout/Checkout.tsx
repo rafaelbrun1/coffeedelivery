@@ -10,8 +10,7 @@ import {
   Trash,
 } from "phosphor-react";
 import { CarContext } from "../../context/CarContext";
-import { FormEvent, useContext } from "react";
-import { Link , useLinkClickHandler} from "react-router-dom";
+import { useContext } from "react";
 
 interface EqualItemsProps {
   id: number;
@@ -36,7 +35,7 @@ export function Checkout() {
 
   const equalItems: EqualItemsProps[] = [];
 
-  cartShopping!.map((element) => {
+  cartShopping?.map((element) => {
     CoffeesType.map((item) => {
       if (element.id === item.id) {
         equalItems.push({ ...item, quantity: element.quantity });
@@ -231,7 +230,7 @@ export function Checkout() {
                 Cafés selecionados
               </strong>
               <div className="flex flex-col gap-8 p-10 bg-[#F3F2F2] rounded-md md:w-[28rem] w-[24rem] ">
-                {cartShopping!.map((item) => {
+                {cartShopping?.map((item) => {
                   const findEqualId = CoffeesType.find(
                     (coffee) => coffee.id === item.id
                   );
