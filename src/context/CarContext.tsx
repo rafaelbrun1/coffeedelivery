@@ -37,7 +37,7 @@ interface SuccesProps {
 
 interface CarContextTypes {
   CoffeesType: CoffeesTypeProps[];
-  cartShopping: CartShoppingProps[] | null;
+  cartShopping: CartShoppingProps[];
   addToCartShopping: (id: number) => void;
   incrementQuantity: (id: number) => void;
   decrementQuantity: (id: number) => void;
@@ -185,7 +185,7 @@ export function CarContextProvider({ children }: ChildrenProps) {
 
   const [payment, setPayment] = useState<String>("");
 
-  const [cartShopping, setCartShopping] = useState<CartShoppingProps[] | null>(() => {
+  const [cartShopping, setCartShopping] = useState<CartShoppingProps[]>(() => {
   const data = window.localStorage.getItem('@desafio-ignite02-1.0.0')
   if (data !== null) { 
     return JSON.parse(data)
@@ -204,7 +204,7 @@ export function CarContextProvider({ children }: ChildrenProps) {
   }
 
   function removeItemFromCart(id: number) {
-    const withoutSelectedOne = cartShopping!.filter(
+    const withoutSelectedOne = cartShopping.filter(
       (element) => element.id !== id
     );
     setCartShopping(withoutSelectedOne);
@@ -215,7 +215,7 @@ export function CarContextProvider({ children }: ChildrenProps) {
     const numberVal = number.value;
     const sameId = CoffeesType.find((element) => element.id === id);
 
-    if (cartShopping!.filter((item) => item.id === sameId?.id).length > 0) {
+    if (cartShopping.filter((item) => item.id === sameId?.id).length > 0) {
       setCartShopping((state) =>
         state!.map((element) => {
           if (element.id === id) {
