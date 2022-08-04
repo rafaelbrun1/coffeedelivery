@@ -189,8 +189,11 @@ export function CarContextProvider({ children }: ChildrenProps) {
   const data = window.localStorage.getItem('@desafio-ignite02-1.0.0')
   if (data !== null) { 
     return JSON.parse(data)
+  } else { 
+    return []
   }
 }
+
   );
 
   function incrementQuantity(id: number) {
