@@ -6,7 +6,7 @@ export function Coffees() {
   const { CoffeesType, incrementQuantity, decrementQuantity, addToCartShopping } = useContext(CarContext);
 
   return (
-    <div className="flex flex-col max-w-[70rem] mt-24 items-center md:items-start md:mt-8 ">
+    <div className="flex flex-col max-w-[70rem] mt-40 items-center md:items-start md:mt-8 ">
       <strong className="font-['Baloo_2'] font-extrabold text-3xl text-[#403937]">
         {" "}
         Nossos cafés

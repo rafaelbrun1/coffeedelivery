@@ -215,6 +215,8 @@ export function CarContextProvider({ children }: ChildrenProps) {
     const numberVal = number.value;
     const sameId = CoffeesType.find((element) => element.id === id);
 
+    
+    if (cartShopping !== undefined) { 
     if (cartShopping.filter((item) => item.id === sameId?.id).length > 0) {
       setCartShopping((state) =>
         state!.map((element) => {
@@ -233,6 +235,7 @@ export function CarContextProvider({ children }: ChildrenProps) {
         { id: sameId!.id, quantity: Number(numberVal) },
       ]);
     }
+  }
 
     number.value = "1";
   }

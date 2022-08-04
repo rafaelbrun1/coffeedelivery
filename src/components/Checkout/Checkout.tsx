@@ -321,7 +321,7 @@ export function Checkout() {
                   
                 <button
                   type="submit"
-                  disabled={cartShopping?.length === 0}
+                  disabled={cartShopping.length === 0}
                   className="bg-[#DBAC2C] py-3 px-2 w-full flex items-center justify-center rounded-md cursor-pointer disabled:opacity-60"
                 >
                   
